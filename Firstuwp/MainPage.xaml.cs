@@ -25,6 +25,32 @@ namespace Firstuwp
         public MainPage()
         {
             this.InitializeComponent();
+
+            this.PiscarLed();
+        }
+
+        private void PiscarLed()
+        {
+            var con = Windows.Devices.Gpio.GpioController.GetDefault();
+            var pin = con.OpenPin(26);
+            pin.SetDriveMode(Windows.Devices.Gpio.GpioPinDriveMode.Output);
+ 
+
+            while (true)
+            {
+               // System.Threading.Tasks.Task.Delay(1000); 
+                pin.Write(Windows.Devices.Gpio.GpioPinValue.High);
+                System.Threading.Tasks.Task.Delay(1000).Wait();
+                pin.Write(Windows.Devices.Gpio.GpioPinValue.Low);
+                System.Threading.Tasks.Task.Delay(1000).Wait();
+            }
+
+
+
+
+
+           
+           
         }
     }
 }

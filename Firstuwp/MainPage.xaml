@@ -8,6 +8,11 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="691" Margin="679,90,0,0" VerticalAlignment="Top" Width="522" Source="Assets/Jorge2-474x606.png" Grid.Column="1"/>
 
     </Grid>
 </Page>
