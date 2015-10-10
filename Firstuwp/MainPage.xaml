@@ -13,6 +13,9 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Image x:Name="image" HorizontalAlignment="Left" Height="691" Margin="679,90,0,0" VerticalAlignment="Top" Width="522" Source="Assets/Jorge2-474x606.png" Grid.Column="1"/>
+        <Button x:Name="button" Grid.ColumnSpan="2" Content="On LED" HorizontalAlignment="Left" Margin="225,413,0,0" VerticalAlignment="Top" FontSize="42.667" Click="button_Click"/>
+        <TextBox Text="26" PlaceholderText="port"  x:Name="textBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="427,414,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="42.667" Width="125"/>
+        <Button x:Name="button_Copy" Grid.ColumnSpan="2" Content="Off LED" HorizontalAlignment="Left" Margin="225,505,0,0" VerticalAlignment="Top" FontSize="42.667" Click="button_Copy_Click"/>
 
     </Grid>
 </Page>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,35 +23,40 @@ namespace Firstuwp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public bool sentinela { get; set; } = true;
+
+
         public MainPage()
         {
             this.InitializeComponent();
-
-            this.PiscarLed();
         }
 
-        private void PiscarLed()
+        private void PiscarLed(int port)
         {
             var con = Windows.Devices.Gpio.GpioController.GetDefault();
-            var pin = con.OpenPin(26);
+            var pin = con.OpenPin(port);
             pin.SetDriveMode(Windows.Devices.Gpio.GpioPinDriveMode.Output);
- 
 
-            while (true)
+            while (sentinela)
             {
-               // System.Threading.Tasks.Task.Delay(1000); 
+                // System.Threading.Tasks.Task.Delay(1000); 
                 pin.Write(Windows.Devices.Gpio.GpioPinValue.High);
                 System.Threading.Tasks.Task.Delay(1000).Wait();
                 pin.Write(Windows.Devices.Gpio.GpioPinValue.Low);
                 System.Threading.Tasks.Task.Delay(1000).Wait();
             }
+        }
 
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            int port = 26;
+            Int32.TryParse(this.textBox.Text, out port);
+            Task.Run(() => PiscarLed(port));
+        }
 
-
-
-
-           
-           
+        private void button_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            this.sentinela = false;
         }
     }
 }
