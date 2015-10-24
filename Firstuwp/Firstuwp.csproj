@@ -113,6 +113,8 @@
     <None Include="Firstuwp_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Imagens\logoCrazyTechGuys.png" />
+    <Content Include="Assets\Imagens\RP2_Pinout.png" />
     <Content Include="Assets\Jorge2-474x606.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

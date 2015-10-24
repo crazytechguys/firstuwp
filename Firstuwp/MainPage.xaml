@@ -6,16 +6,50 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="691" Margin="679,90,0,0" VerticalAlignment="Top" Width="522" Source="Assets/Jorge2-474x606.png" Grid.Column="1"/>
-        <Button x:Name="button" Grid.ColumnSpan="2" Content="On LED" HorizontalAlignment="Left" Margin="225,413,0,0" VerticalAlignment="Top" FontSize="42.667" Click="button_Click"/>
-        <TextBox Text="26" PlaceholderText="port"  x:Name="textBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="427,414,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="42.667" Width="125"/>
-        <Button x:Name="button_Copy" Grid.ColumnSpan="2" Content="Off LED" HorizontalAlignment="Left" Margin="225,505,0,0" VerticalAlignment="Top" FontSize="42.667" Click="button_Copy_Click"/>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="image" Source="Assets/Imagens/logoCrazyTechGuys.png" Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="10" />
+        <RelativePanel Grid.Column="0" Grid.Row="0">
+            <Button x:Name="btnSplitViewButton" Background="Transparent" Padding="0,-6" Margin="12" Click="btnSplitViewButton_Click" >
+                <FontIcon FontFamily="{ThemeResource ContentControlThemeFontFamily}" Glyph="&#x2261;" FontSize="32" Margin="0,-8,0,0"/>
+            </Button>
+        </RelativePanel>
+        <SplitView x:Name="swSplitView" PaneBackground="{ThemeResource ApplicationPageBackgroundThemeBrush}" DisplayMode="Inline"  OpenPaneLength="300" Grid.Column="0" Grid.RowSpan="4"  Grid.ColumnSpan="3" Grid.Row="0" Margin="0,50,0,0">
+            <SplitView.Pane>
+                <RelativePanel>
+                    <!-- Static Relativepanel, substitutes nested stackpanel or grid with rows/columns for this simple scenario -->
+                    <Image Source="Assets/Imagens/RP2_Pinout.png" Margin="10" />
+                </RelativePanel>
+            </SplitView.Pane>
+        </SplitView>
+        <Button x:Name="btnOnLed" Content="On LED" Click="btnOnLed_Click" Grid.Column="2" Margin="10,0,0,58" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="70"/>
+        <Button x:Name="btnOnOff" Content="Off LED" Click="btnOnOff_Click" Margin="10,10,0,0" Grid.Column="2" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70" Height="32"/>
+        <TextBox x:Name="txbGPIO" PlaceholderText="GPIO" Grid.Column="2" Grid.Row="2" Margin="10,0,10,10" Height="32" VerticalAlignment="Bottom"  />
     </Grid>
+    <!--<Page.BottomAppBar>
+        <AppBar ClosedDisplayMode="Minimal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Button 1" Width="100" Height="40" />
+                    <Button Content="Button 2" Width="100" Height="40" />
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </Page.BottomAppBar>-->
 </Page>

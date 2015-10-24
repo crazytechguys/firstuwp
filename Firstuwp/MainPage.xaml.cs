@@ -47,14 +47,14 @@ namespace Firstuwp
             }
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void btnOnLed_Click(object sender, RoutedEventArgs e)
         {
             int port = 26;
-            Int32.TryParse(this.textBox.Text, out port);
+            Int32.TryParse(this.txbGPIO.Text, out port);
             Task.Run(() => PiscarLed(port));
         }
 
-        private void button_Copy_Click(object sender, RoutedEventArgs e)
+        private void btnOnOff_Click(object sender, RoutedEventArgs e)
         {
             this.sentinela = false;
         }
